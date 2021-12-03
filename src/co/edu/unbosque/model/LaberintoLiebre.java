@@ -3,13 +3,37 @@ package co.edu.unbosque.model;
 import java.util.ArrayList;
 
 public class LaberintoLiebre {
-	
-	public void LaberintoLiebre() {
-		
+
+	public LaberintoLiebre() {
+
 	}
 
-	public void rellenarCaminosV2(Laberinto laberinto, Casilla casillaActual, ArrayList<Casilla> camino, int p,
-			int q, int anterior, String saber) {
+	public void buscarSaltosLiebre(int numeroFilas, int numeroColumnas, int incioX, int inicioY, int finX, int finY,
+			int pCamino, int qCaminos) {
+		Casilla[][] tablero = new Casilla[numeroFilas + 2][numeroColumnas + 2];
+
+		for (int i = 1; i < (tablero.length - 1); i++) {
+			for (int j = 1; j < (tablero.length - 1); j++) {
+				tablero[i][j] = new Casilla(i, j);
+			}
+		}
+		tablero[finX][finY].setFin(true);
+
+		ArrayList<Casilla> camino = new ArrayList<>();
+		int p = pCamino;
+		int q = qCaminos;
+		int anterior = 0;
+
+		Laberinto laberinto = new Laberinto(tablero);
+		camino.add(tablero[incioX][inicioY]);
+
+		rellenarCaminosV2(laberinto, tablero[incioX][inicioY], camino, p, q, anterior, "q");
+
+		laberinto.mostrarCaminos();
+	}
+
+	public void rellenarCaminosV2(Laberinto laberinto, Casilla casillaActual, ArrayList<Casilla> camino, int p, int q,
+			int anterior, String saber) {
 
 		if (casillaActual.isFin()) {
 

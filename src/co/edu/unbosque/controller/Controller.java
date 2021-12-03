@@ -34,7 +34,20 @@ public class Controller {
 						"Ingrese la opción que desea realizar\n1.Nutricionista\n2.Liga de fútbol\n3.Saltos de conejo");
 				switch (opcion) {
 				case "1":
-					vista.imprimirDato("Opcion1");
+					String numeroPlatos = "";
+					String nombrePlato = "";
+					String numeroCalorias = "";
+					String minimoCalorias = "";
+					numeroPlatos = vista.leerDato("Ingrese el numero de platos");
+					minimoCalorias = vista.leerDato("Ingrese el minimo de calorias");
+					String[][] platos = new String[Integer.parseInt(numeroPlatos)][2];
+					for (int i = 0; i < Integer.parseInt(numeroPlatos); i++) {
+						nombrePlato = vista.leerDato("Ingrese el nombre del plato numero " + (i + 1));
+						numeroCalorias = vista.leerDato("Ingrese el numero de calorias del plato numero " + (i + 1));
+						platos[i][0] = nombrePlato;
+						platos[i][1] = numeroCalorias;
+					}
+					modelo.getMenuOptimo().calcularMenuOptimo(platos, Integer.parseInt(minimoCalorias));
 					break;
 				case "2":
 					vista.imprimirDato("Opcion2");
@@ -64,7 +77,7 @@ public class Controller {
 					modelo.verificarNumero(caminosP);
 					caminosQ = vista.leerDato("Ingrese el numero de caminos Q");
 					modelo.verificarNumero(caminosQ);
-					modelo.buscarSaltosLiebre(Integer.parseInt(numeroFilas), Integer.parseInt(numeroColumnas),
+					modelo.getLaberintoLiebre().buscarSaltosLiebre(Integer.parseInt(numeroFilas), Integer.parseInt(numeroColumnas),
 							Integer.parseInt(inicioX), Integer.parseInt(inicioY), Integer.parseInt(finX),
 							Integer.parseInt(finY), Integer.parseInt(caminosP), Integer.parseInt(caminosQ));
 
