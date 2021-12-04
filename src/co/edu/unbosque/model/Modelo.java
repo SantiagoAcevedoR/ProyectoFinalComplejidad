@@ -6,14 +6,14 @@ package co.edu.unbosque.model;
 public class Modelo {
 
 	private LaberintoLiebre laberintoLiebre;
-	
+
 	private MenuOptimo menuOptimo;
 
 	public Modelo() {
 		laberintoLiebre = new LaberintoLiebre();
 		menuOptimo = new MenuOptimo();
 	}
-	
+
 	public boolean soloNumeros(String numero) {
 		for (int i = 0; i < numero.length(); i++) {
 			char aux = numero.charAt(i);
@@ -24,16 +24,21 @@ public class Modelo {
 		}
 		return true;
 	}
-	
+
 	public String verificarNumero(String numero) throws ExceptionNumero {
-		if (!soloNumeros(numero)) {
-			throw new ExceptionNumero("Caracter no permitido en campo numérico");
-		} else {
-			if (Integer.parseInt(numero) <= 0) {
-				throw new ExceptionNumero("Ingrese una cantidad minimo de uno");
+		String resultado = "";
+		try {
+			if (!soloNumeros(numero)) {
+				throw new ExceptionNumero("Caracter no permitido en campo numérico");
+			} else {
+				if (Integer.parseInt(numero) <= 0) {
+					throw new ExceptionNumero("Ingrese una cantidad minimo de uno");
+				}
 			}
+		} catch (ExceptionNumero e) {
+			resultado = e.getMessage();
 		}
-		return "";	
+		return resultado;
 	}
 
 	/**

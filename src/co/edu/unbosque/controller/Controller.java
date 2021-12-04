@@ -38,12 +38,46 @@ public class Controller {
 					String nombrePlato = "";
 					String numeroCalorias = "";
 					String minimoCalorias = "";
-					numeroPlatos = vista.leerDato("Ingrese el numero de platos");
-					minimoCalorias = vista.leerDato("Ingrese el minimo de calorias");
+					String error = "";
+					int k = 0;
+					do {
+						numeroPlatos = vista.leerDato("Ingrese el numero de platos");
+						error = modelo.verificarNumero(numeroPlatos);
+						if (error.length() == 0) {
+							k = 1;
+						} else {
+							k = 0;
+							vista.imprimirDato(error);
+						}
+					} while (k == 0);
+					error = "";
+					k = 0;
+					do {
+						minimoCalorias = vista.leerDato("Ingrese el minimo de calorias");
+						error = modelo.verificarNumero(minimoCalorias);
+						if (error.length() == 0) {
+							k = 1;
+						} else {
+							k = 0;
+							vista.imprimirDato(error);
+						}
+					} while (k == 0);
+					error = "";
+					k = 0;
 					String[][] platos = new String[Integer.parseInt(numeroPlatos)][2];
 					for (int i = 0; i < Integer.parseInt(numeroPlatos); i++) {
 						nombrePlato = vista.leerDato("Ingrese el nombre del plato numero " + (i + 1));
-						numeroCalorias = vista.leerDato("Ingrese el numero de calorias del plato numero " + (i + 1));
+						do {
+							numeroCalorias = vista
+									.leerDato("Ingrese el numero de calorias del plato numero " + (i + 1));
+							error = modelo.verificarNumero(numeroCalorias);
+							if (error.length() == 0) {
+								k = 1;
+							} else {
+								k = 0;
+								vista.imprimirDato(error);
+							}
+						} while (k == 0);
 						platos[i][0] = nombrePlato;
 						platos[i][1] = numeroCalorias;
 					}
@@ -61,25 +95,106 @@ public class Controller {
 					String finY = "";
 					String caminosP = "";
 					String caminosQ = "";
-					numeroFilas = vista.leerDato("Ingrese el número de filas del campo");
-					modelo.verificarNumero(numeroFilas);
-					numeroColumnas = vista.leerDato("Ingrese el número de columnas del campo");
-					modelo.verificarNumero(numeroColumnas);
-					inicioX = vista.leerDato("Ingrese la cordenada x del punto de partia de la liebre");
-					modelo.verificarNumero(inicioX);
-					inicioY = vista.leerDato("Ingrese la cordenada y del punto de partia de la liebre");
-					modelo.verificarNumero(inicioY);
-					finX = vista.leerDato("Ingrese la cordenada x del punto de llegada de la liebre");
-					modelo.verificarNumero(finX);
-					finY = vista.leerDato("Ingrese la cordenada y del punto de llegada de la liebre");
-					modelo.verificarNumero(finY);
-					caminosP = vista.leerDato("Ingrese el numero de caminos P");
-					modelo.verificarNumero(caminosP);
-					caminosQ = vista.leerDato("Ingrese el numero de caminos Q");
-					modelo.verificarNumero(caminosQ);
-					modelo.getLaberintoLiebre().buscarSaltosLiebre(Integer.parseInt(numeroFilas), Integer.parseInt(numeroColumnas),
-							Integer.parseInt(inicioX), Integer.parseInt(inicioY), Integer.parseInt(finX),
-							Integer.parseInt(finY), Integer.parseInt(caminosP), Integer.parseInt(caminosQ));
+					error = "";
+					k = 0;
+					do {
+						numeroFilas = vista.leerDato("Ingrese el numero de filas del campo");
+						error = modelo.verificarNumero(numeroFilas);
+						if (error.length() == 0) {
+							k = 1;
+						} else {
+							k = 0;
+							vista.imprimirDato(error);
+						}
+					} while (k == 0);
+					error = "";
+					k = 0;
+					do {
+						numeroColumnas = vista.leerDato("Ingrese el número de columnas del campo");
+						error = modelo.verificarNumero(numeroColumnas);
+						if (error.length() == 0) {
+							k = 1;
+						} else {
+							k = 0;
+							vista.imprimirDato(error);
+						}
+					} while (k == 0);
+					error = "";
+					k = 0;
+					do {
+						inicioX = vista.leerDato("Ingrese la cordenada x del punto de partia de la liebre");
+						error = modelo.verificarNumero(inicioX);
+						if (error.length() == 0) {
+							k = 1;
+						} else {
+							k = 0;
+							vista.imprimirDato(error);
+						}
+					} while (k == 0);
+					error = "";
+					k = 0;
+					do {
+						inicioY = vista.leerDato("Ingrese la cordenada y del punto de partia de la liebre");
+						error = modelo.verificarNumero(inicioY);
+						if (error.length() == 0) {
+							k = 1;
+						} else {
+							k = 0;
+							vista.imprimirDato(error);
+						}
+					} while (k == 0);
+					error = "";
+					k = 0;
+					do {
+						finX = vista.leerDato("Ingrese la cordenada x del punto de llegada de la liebre");
+						error = modelo.verificarNumero(finX);
+						if (error.length() == 0) {
+							k = 1;
+						} else {
+							k = 0;
+							vista.imprimirDato(error);
+						}
+					} while (k == 0);
+					error = "";
+					k = 0;
+					do {
+						finY = vista.leerDato("Ingrese la cordenada y del punto de llegada de la liebre");
+						error = modelo.verificarNumero(finY);
+						if (error.length() == 0) {
+							k = 1;
+						} else {
+							k = 0;
+							vista.imprimirDato(error);
+						}
+					} while (k == 0);
+					error = "";
+					k = 0;
+					do {
+						caminosP = vista.leerDato("Ingrese el numero de caminos P");
+						error = modelo.verificarNumero(caminosP);
+						if (error.length() == 0) {
+							k = 1;
+						} else {
+							k = 0;
+							vista.imprimirDato(error);
+						}
+					} while (k == 0);
+					error = "";
+					k = 0;
+					do {
+						caminosQ = vista.leerDato("Ingrese el numero de caminos Q");
+						error = modelo.verificarNumero(caminosQ);
+						if (error.length() == 0) {
+							k = 1;
+						} else {
+							k = 0;
+							vista.imprimirDato(error);
+						}
+					} while (k == 0);
+					modelo.getLaberintoLiebre().buscarSaltosLiebre(Integer.parseInt(numeroFilas),
+							Integer.parseInt(numeroColumnas), Integer.parseInt(inicioX), Integer.parseInt(inicioY),
+							Integer.parseInt(finX), Integer.parseInt(finY), Integer.parseInt(caminosP),
+							Integer.parseInt(caminosQ));
 
 					break;
 				default:
