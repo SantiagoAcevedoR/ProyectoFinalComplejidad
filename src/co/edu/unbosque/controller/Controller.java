@@ -8,8 +8,8 @@ import co.edu.unbosque.model.ExceptionNumero;
 import co.edu.unbosque.view.Vista;
 
 /**
- * @author ROBINSON
- *
+ * @author Santiado Acevedo Rodriguez, Jhoan Ricardo Cuevas Patiño, Robinson
+ *         José Gutierrez Solano.
  */
 public class Controller {
 
@@ -24,6 +24,9 @@ public class Controller {
 		modelo = new Modelo();
 		iniciar();
 	}
+	/**
+	 * Metodo que hace correr las instancias del programa
+	 */
 
 	public void iniciar() {
 		String opcion = "";
