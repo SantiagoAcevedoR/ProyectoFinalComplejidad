@@ -96,12 +96,13 @@ public class Laberinto {
 		}
 	}
 
-	public void mostrarCaminos() {
-
-		System.out.println("Camino: " + (caminos.size()-1));
+	public String mostrarCaminos() {
+		String camino = "";
+		camino += "Minimo de saltos: " + (caminos.size()-1);
 		for (Casilla c : caminos) {
-			System.out.println(c);
+			camino +="\n" + c;
 		}
+		return camino;
 
 	}
 

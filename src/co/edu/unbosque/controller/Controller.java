@@ -125,7 +125,12 @@ public class Controller {
 						inicioX = vista.leerDato("Ingrese la cordenada x del punto de partia de la liebre");
 						error = modelo.verificarNumero(inicioX);
 						if (error.length() == 0) {
-							k = 1;
+							if (Integer.parseInt(inicioX) > Integer.parseInt(numeroFilas)) {
+								k = 0;
+								vista.imprimirDato("El numero que está indicando sobrepasa los limites del campo");
+							} else {
+								k = 1;
+							}
 						} else {
 							k = 0;
 							vista.imprimirDato(error);
@@ -137,7 +142,12 @@ public class Controller {
 						inicioY = vista.leerDato("Ingrese la cordenada y del punto de partia de la liebre");
 						error = modelo.verificarNumero(inicioY);
 						if (error.length() == 0) {
-							k = 1;
+							if (Integer.parseInt(inicioY) > Integer.parseInt(numeroColumnas)) {
+								k = 0;
+								vista.imprimirDato("El numero que está indicando sobrepasa los limites del campo");
+							} else {
+								k = 1;
+							}
 						} else {
 							k = 0;
 							vista.imprimirDato(error);
@@ -149,7 +159,12 @@ public class Controller {
 						finX = vista.leerDato("Ingrese la cordenada x del punto de llegada de la liebre");
 						error = modelo.verificarNumero(finX);
 						if (error.length() == 0) {
-							k = 1;
+							if (Integer.parseInt(finX) > Integer.parseInt(numeroFilas)) {
+								k = 0;
+								vista.imprimirDato("El numero que está indicando sobrepasa los limites del campo");
+							} else {
+								k = 1;
+							}
 						} else {
 							k = 0;
 							vista.imprimirDato(error);
@@ -161,7 +176,12 @@ public class Controller {
 						finY = vista.leerDato("Ingrese la cordenada y del punto de llegada de la liebre");
 						error = modelo.verificarNumero(finY);
 						if (error.length() == 0) {
-							k = 1;
+							if (Integer.parseInt(finY) > Integer.parseInt(numeroColumnas)) {
+								k = 0;
+								vista.imprimirDato("El numero que está indicando sobrepasa los limites del campo");
+							} else {
+								k = 1;
+							}
 						} else {
 							k = 0;
 							vista.imprimirDato(error);
@@ -191,11 +211,17 @@ public class Controller {
 							vista.imprimirDato(error);
 						}
 					} while (k == 0);
-					modelo.getLaberintoLiebre().buscarSaltosLiebre(Integer.parseInt(numeroFilas),
+					String camino = modelo.getLaberintoLiebre().buscarSaltosLiebre(Integer.parseInt(numeroFilas),
 							Integer.parseInt(numeroColumnas), Integer.parseInt(inicioX), Integer.parseInt(inicioY),
 							Integer.parseInt(finX), Integer.parseInt(finY), Integer.parseInt(caminosP),
 							Integer.parseInt(caminosQ));
-
+					if (camino.length() == 0) {
+						vista.imprimirDato("No es posible calcular el camino");
+					}else if(camino.equals("Minimo de saltos: -1")) {
+						vista.imprimirDato("No es posible calcular el camino");
+					}else {
+						vista.imprimirDato(camino);
+					}
 					break;
 				default:
 					vista.imprimirDato("Opción no valida");

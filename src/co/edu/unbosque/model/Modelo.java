@@ -28,7 +28,9 @@ public class Modelo {
 	public String verificarNumero(String numero) throws ExceptionNumero {
 		String resultado = "";
 		try {
-			if (!soloNumeros(numero)) {
+			if (numero.length() == 0) {
+				throw new ExceptionNumero("Por favor algun dato");
+			} else if (!soloNumeros(numero)) {
 				throw new ExceptionNumero("Caracter no permitido en campo numérico");
 			} else {
 				if (Integer.parseInt(numero) <= 0) {

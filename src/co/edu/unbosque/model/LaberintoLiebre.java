@@ -8,7 +8,7 @@ public class LaberintoLiebre {
 
 	}
 
-	public void buscarSaltosLiebre(int numeroFilas, int numeroColumnas, int incioX, int inicioY, int finX, int finY,
+	public String buscarSaltosLiebre(int numeroFilas, int numeroColumnas, int incioX, int inicioY, int finX, int finY,
 			int pCamino, int qCaminos) {
 		Casilla[][] tablero = new Casilla[numeroFilas + 2][numeroColumnas + 2];
 
@@ -29,7 +29,7 @@ public class LaberintoLiebre {
 
 		rellenarCaminosV2(laberinto, tablero[incioX][inicioY], camino, p, q, anterior, "q");
 
-		laberinto.mostrarCaminos();
+		return laberinto.mostrarCaminos();
 	}
 
 	public void rellenarCaminosV2(Laberinto laberinto, Casilla casillaActual, ArrayList<Casilla> camino, int p, int q,
