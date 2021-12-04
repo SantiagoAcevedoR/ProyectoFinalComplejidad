@@ -2,13 +2,13 @@ package co.edu.unbosque.model;
 
 import java.util.ArrayList;
 
-public class Laberinto {
+public class Campo {
 
 	private Casilla[][] tablero;
 
 	private ArrayList<Casilla> caminos;
 
-	public Laberinto(Casilla[][] tablero) {
+	public Campo(Casilla[][] tablero) {
 		this.tablero = tablero;
 		caminos = new ArrayList<>();
 	}

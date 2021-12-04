@@ -1,12 +1,39 @@
+/**
+ * Paquete model
+ */
 package co.edu.unbosque.model;
 
 import java.util.ArrayList;
 
-public class LaberintoLiebre {
+/**
+ * 
+ * @author Santiado Acevedo Rodriguez, Jhoan Ricardo Cuevas Patiño, Robinson
+ *         José Gutierrez Solano.
+ */
+public class CampoLiebre {
 
-	public LaberintoLiebre() {
+	/**
+	 * Constructor vacio
+	 */
+	public CampoLiebre() {
 
 	}
+
+	/**
+	 * Este metodo se encarga de encontrar el minimo de saltos posibles para llegar
+	 * de un punto (x,y) a otro punto (u,v)
+	 * 
+	 * @param numeroFilas,    numero de filas del campo o matriz
+	 * @param numeroColumnas, numero de columnas del campo o matriz
+	 * @param incioX,         coordenada x del punto de partida
+	 * @param inicioY,        coordenada y del punto de partida
+	 * @param finX,           coordenada x del punto de llegada
+	 * @param finY,           coordenada y del punto de llegada
+	 * @param pCamino,        p camino posibles
+	 * @param qCaminos,       q caminos posibles @return, retorna el numero de
+	 *                        saltos minimos, y la ruta por cual la libre hizo el
+	 *                        recorrido
+	 */
 
 	public String buscarSaltosLiebre(int numeroFilas, int numeroColumnas, int incioX, int inicioY, int finX, int finY,
 			int pCamino, int qCaminos) {
@@ -24,7 +51,7 @@ public class LaberintoLiebre {
 		int q = qCaminos;
 		int anterior = 0;
 
-		Laberinto laberinto = new Laberinto(tablero);
+		Campo laberinto = new Campo(tablero);
 		camino.add(tablero[incioX][inicioY]);
 
 		rellenarCaminosV2(laberinto, tablero[incioX][inicioY], camino, p, q, anterior, "q");
@@ -32,7 +59,20 @@ public class LaberintoLiebre {
 		return laberinto.mostrarCaminos();
 	}
 
-	public void rellenarCaminosV2(Laberinto laberinto, Casilla casillaActual, ArrayList<Casilla> camino, int p, int q,
+	/**
+	 * Este metodo se encarga de rellenar los caminos posibles por donde pasará la
+	 * liebre.
+	 * 
+	 * @param laberinto,     es el campo por el cual se ira buscando el camino
+	 * @param casillaActual, casilla x,y en la que se encuentra la liebre
+	 * @param camino,        todas las posibles rutas
+	 * @param p,             numero de p movimientos disponibles
+	 * @param q,             numero de q movimiento disponibles
+	 * @param anterior,      movimiento anterior
+	 * @param saber,         ultimo movimiento realizdo, ya sea arriba, abajo,
+	 *                       izquieda o derecha
+	 */
+	public void rellenarCaminosV2(Campo laberinto, Casilla casillaActual, ArrayList<Casilla> camino, int p, int q,
 			int anterior, String saber) {
 
 		if (casillaActual.isFin()) {
@@ -69,7 +109,21 @@ public class LaberintoLiebre {
 		}
 	}
 
-	public void caminos(Laberinto laberinto, Casilla casillaActual, ArrayList<Casilla> camino, int p, int q,
+	/**
+	 * Este metodo se encarga de encontrar los caminos
+	 * 
+	 * @param laberinto,     es el campor por el cual se buscaran los caminos
+	 * @param casillaActual, casilla x,y en la que se encuentra la liebre
+	 * @param camino,        todos los posibles caminos
+	 * @param p,             numero de p movimineto disponibles
+	 * @param q,             numero de q movimiento disponibles
+	 * @param anterior,      movimiento anterior
+	 * @param saber,         ultimo movimiento realizdo, ya sea arriba, abajo,
+	 *                       izquieda o derecha
+	 * @param movimientos,   se encarga de determinar el siguiente movimiento de la
+	 *                       liebre
+	 */
+	public void caminos(Campo laberinto, Casilla casillaActual, ArrayList<Casilla> camino, int p, int q,
 			int anterior, String saber, int[][] movimientos) {
 
 		int posXnueva, posYnueva;

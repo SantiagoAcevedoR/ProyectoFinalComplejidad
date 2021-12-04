@@ -122,7 +122,7 @@ public class Controller {
 					error = "";
 					k = 0;
 					do {
-						inicioX = vista.leerDato("Ingrese la cordenada x del punto de partia de la liebre");
+						inicioX = vista.leerDato("Ingrese la coordenada x del punto de partia de la liebre");
 						error = modelo.verificarNumero(inicioX);
 						if (error.length() == 0) {
 							if (Integer.parseInt(inicioX) > Integer.parseInt(numeroFilas)) {
@@ -139,7 +139,7 @@ public class Controller {
 					error = "";
 					k = 0;
 					do {
-						inicioY = vista.leerDato("Ingrese la cordenada y del punto de partia de la liebre");
+						inicioY = vista.leerDato("Ingrese la coordenada y del punto de partia de la liebre");
 						error = modelo.verificarNumero(inicioY);
 						if (error.length() == 0) {
 							if (Integer.parseInt(inicioY) > Integer.parseInt(numeroColumnas)) {
@@ -156,7 +156,7 @@ public class Controller {
 					error = "";
 					k = 0;
 					do {
-						finX = vista.leerDato("Ingrese la cordenada x del punto de llegada de la liebre");
+						finX = vista.leerDato("Ingrese la coordenada x del punto de llegada de la liebre");
 						error = modelo.verificarNumero(finX);
 						if (error.length() == 0) {
 							if (Integer.parseInt(finX) > Integer.parseInt(numeroFilas)) {
@@ -173,7 +173,7 @@ public class Controller {
 					error = "";
 					k = 0;
 					do {
-						finY = vista.leerDato("Ingrese la cordenada y del punto de llegada de la liebre");
+						finY = vista.leerDato("Ingrese la coordenada y del punto de llegada de la liebre");
 						error = modelo.verificarNumero(finY);
 						if (error.length() == 0) {
 							if (Integer.parseInt(finY) > Integer.parseInt(numeroColumnas)) {
@@ -211,7 +211,7 @@ public class Controller {
 							vista.imprimirDato(error);
 						}
 					} while (k == 0);
-					String camino = modelo.getLaberintoLiebre().buscarSaltosLiebre(Integer.parseInt(numeroFilas),
+					String camino = modelo.getCampoLibre().buscarSaltosLiebre(Integer.parseInt(numeroFilas),
 							Integer.parseInt(numeroColumnas), Integer.parseInt(inicioX), Integer.parseInt(inicioY),
 							Integer.parseInt(finX), Integer.parseInt(finY), Integer.parseInt(caminosP),
 							Integer.parseInt(caminosQ));

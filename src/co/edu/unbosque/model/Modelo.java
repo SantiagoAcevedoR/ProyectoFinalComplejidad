@@ -3,17 +3,30 @@
  */
 package co.edu.unbosque.model;
 
+/**
+ * 
+ * @author Santiado Acevedo Rodriguez, Jhoan Ricardo Cuevas Patiño, Robinson
+ *         José Gutierrez Solano.
+ */
 public class Modelo {
 
-	private LaberintoLiebre laberintoLiebre;
-
+	private CampoLiebre campoLibre;
 	private MenuOptimo menuOptimo;
 
+	/**
+	 * Contructor vacio
+	 */
 	public Modelo() {
-		laberintoLiebre = new LaberintoLiebre();
+		campoLibre = new CampoLiebre();
 		menuOptimo = new MenuOptimo();
 	}
 
+	/**
+	 * Se encarga de verificar si un dato tipo string contine solo numeros
+	 * 
+	 * @param numero
+	 * @return
+	 */
 	public boolean soloNumeros(String numero) {
 		for (int i = 0; i < numero.length(); i++) {
 			char aux = numero.charAt(i);
@@ -25,6 +38,14 @@ public class Modelo {
 		return true;
 	}
 
+	/**
+	 * Este metodo se encarga de capturar los String que contengan caracteres
+	 * diferentes a los numeros
+	 * 
+	 * @param numero, String a verificar @return, retorna el mensaje de error
+	 *                indicando lo que debera hacer
+	 * @throws ExceptionNumero, si el el mensaje contiene numero o es menor a cero.
+	 */
 	public String verificarNumero(String numero) throws ExceptionNumero {
 		String resultado = "";
 		try {
@@ -44,17 +65,17 @@ public class Modelo {
 	}
 
 	/**
-	 * @return the laberintoLiebre
+	 * @return the campoLibre
 	 */
-	public LaberintoLiebre getLaberintoLiebre() {
-		return laberintoLiebre;
+	public CampoLiebre getCampoLibre() {
+		return campoLibre;
 	}
 
 	/**
-	 * @param laberintoLiebre the laberintoLiebre to set
+	 * @param campoLibre the campoLibre to set
 	 */
-	public void setLaberintoLiebre(LaberintoLiebre laberintoLiebre) {
-		this.laberintoLiebre = laberintoLiebre;
+	public void setCampoLibre(CampoLiebre campoLibre) {
+		this.campoLibre = campoLibre;
 	}
 
 	/**
